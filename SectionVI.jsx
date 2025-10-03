@@ -1,5 +1,5 @@
-
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function SectionVI({ onNext }) {
   const [csr, setCsr] = useState({
@@ -7,6 +7,8 @@ export default function SectionVI({ onNext }) {
     turnover: "",
     netWorth: "",
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,11 +19,11 @@ export default function SectionVI({ onNext }) {
     e.preventDefault();
     console.log("Section VI Data:", csr);
     if (onNext) onNext(csr);
+    navigate("/sectionVII");
   };
 
   return (
     <div>
-      {/* Internal CSS */}
       <style>
         {`
           .form-container {
@@ -45,7 +47,8 @@ export default function SectionVI({ onNext }) {
             margin-bottom: 5px;
             color: #555;
           }
-          .form-group input, .form-group select {
+          .form-group input,
+          .form-group select {
             width: 100%;
             padding: 8px;
             border: 1px solid #ccc;
@@ -76,6 +79,7 @@ export default function SectionVI({ onNext }) {
               name="applicable"
               value={csr.applicable}
               onChange={handleChange}
+              required
             >
               <option value="">Select</option>
               <option value="Yes">Yes</option>
@@ -90,6 +94,7 @@ export default function SectionVI({ onNext }) {
               name="turnover"
               value={csr.turnover}
               onChange={handleChange}
+              min="0"
             />
           </div>
 
@@ -100,6 +105,7 @@ export default function SectionVI({ onNext }) {
               name="netWorth"
               value={csr.netWorth}
               onChange={handleChange}
+              min="0"
             />
           </div>
 
@@ -111,4 +117,3 @@ export default function SectionVI({ onNext }) {
     </div>
   );
 }
-

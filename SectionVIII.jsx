@@ -1,43 +1,42 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function SectionV({ onNext }) {
-  const [companies, setCompanies] = useState([
+export default function SectionVIII({ onNext }) {
+  const navigate = useNavigate();
+  const [issues, setIssues] = useState([
     {
-      name: "",
-      relation: "",
-      sharePercent: "",
-      participatesInBR: "",
+      issue: "",
+      type: "",
+      rationale: "",
+      approach: "",
+      implications: "",
     },
   ]);
 
-  const navigate = useNavigate();
-
-  const handleChange = (index, e) => {
-    const { name, value } = e.target;
-    const updated = [...companies];
-    updated[index][name] = value;
-    setCompanies(updated);
+  const handleChange = (index, field, value) => {
+    const updated = [...issues];
+    updated[index][field] = value;
+    setIssues(updated);
   };
 
-  const addCompany = () => {
-    setCompanies([
-      ...companies,
-      { name: "", relation: "", sharePercent: "", participatesInBR: "" },
+  const addIssue = () => {
+    setIssues([
+      ...issues,
+      { issue: "", type: "", rationale: "", approach: "", implications: "" },
     ]);
   };
 
-  const removeCompany = (index) => {
-    const updated = [...companies];
+  const removeIssue = (index) => {
+    const updated = [...issues];
     updated.splice(index, 1);
-    setCompanies(updated);
+    setIssues(updated);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Section V Data:", companies);
-    if (onNext) onNext(companies);
-    navigate("/sectionVI");
+    console.log("Section VIII Data:", issues);
+    if (onNext) onNext(issues);
+    navigate("/submit");
   };
 
   return (
@@ -46,9 +45,9 @@ export default function SectionV({ onNext }) {
         {`
           .form-container {
             padding: 20px;
-            max-width: 700px;
+            max-width: 750px;
             margin: auto;
-            background: #fafafa;
+            background: #fdfdfd;
             border-radius: 8px;
             box-shadow: 0 0 8px rgba(0,0,0,0.1);
           }
@@ -65,7 +64,9 @@ export default function SectionV({ onNext }) {
             margin-bottom: 4px;
             color: #555;
           }
-          .form-group input, .form-group select {
+          .form-group input,
+          .form-group textarea,
+          .form-group select {
             width: 100%;
             padding: 8px;
             border: 1px solid #ccc;
@@ -106,70 +107,85 @@ export default function SectionV({ onNext }) {
       </style>
 
       <div className="form-container">
-        <h2>Section V: Holding / Subsidiary / Associate Companies</h2>
+        <h2>Section VIII: Material Responsible Business Issues</h2>
         <form onSubmit={handleSubmit}>
-          {companies.map((company, index) => (
+          {issues.map((issue, index) => (
             <div
               key={index}
               style={{
                 borderBottom: "1px solid #ddd",
-                paddingBottom: "15px",
                 marginBottom: "15px",
+                paddingBottom: "15px",
               }}
             >
               <div className="form-group">
-                <label>Company Name:</label>
+                <label>Material Issue Identified:</label>
                 <input
                   type="text"
-                  name="name"
-                  value={company.name}
-                  onChange={(e) => handleChange(index, e)}
+                  value={issue.issue}
+                  onChange={(e) => handleChange(index, "issue", e.target.value)}
+                  required
                 />
               </div>
+
               <div className="form-group">
-                <label>Relation (Holding/Subsidiary/Associate/JV):</label>
-                <input
-                  type="text"
-                  name="relation"
-                  value={company.relation}
-                  onChange={(e) => handleChange(index, e)}
-                />
-              </div>
-              <div className="form-group">
-                <label>% of Shares Held:</label>
-                <input
-                  type="number"
-                  name="sharePercent"
-                  value={company.sharePercent}
-                  onChange={(e) => handleChange(index, e)}
-                />
-              </div>
-              <div className="form-group">
-                <label>Participates in Business Responsibility (Yes/No):</label>
+                <label>Type (Risk or Opportunity):</label>
                 <select
-                  name="participatesInBR"
-                  value={company.participatesInBR}
-                  onChange={(e) => handleChange(index, e)}
+                  value={issue.type}
+                  onChange={(e) => handleChange(index, "type", e.target.value)}
+                  required
                 >
                   <option value="">Select</option>
-                  <option value="Yes">Yes</option>
-                  <option value="No">No</option>
+                  <option value="Risk">Risk</option>
+                  <option value="Opportunity">Opportunity</option>
                 </select>
               </div>
-              {companies.length > 1 && (
+
+              <div className="form-group">
+                <label>Rationale for Identifying:</label>
+                <textarea
+                  rows="2"
+                  value={issue.rationale}
+                  onChange={(e) => handleChange(index, "rationale", e.target.value)}
+                />
+              </div>
+
+              {issue.type === "Risk" && (
+                <div className="form-group">
+                  <label>Approach to Adapt/Mitigate:</label>
+                  <textarea
+                    rows="2"
+                    value={issue.approach}
+                    onChange={(e) => handleChange(index, "approach", e.target.value)}
+                  />
+                </div>
+              )}
+
+              <div className="form-group">
+                <label>Financial Implications:</label>
+                <textarea
+                  rows="2"
+                  value={issue.implications}
+                  onChange={(e) => handleChange(index, "implications", e.target.value)}
+                />
+              </div>
+
+              {issues.length > 1 && (
                 <button
                   type="button"
                   className="btn remove-btn"
-                  onClick={() => removeCompany(index)}
+                  onClick={() => removeIssue(index)}
                 >
-                  Remove
+                  Remove Issue
                 </button>
               )}
             </div>
           ))}
-          <button type="button" className="btn add-btn" onClick={addCompany}>
-            + Add Another Company
+
+          <button type="button" className="btn add-btn" onClick={addIssue}>
+            + Add Another Issue
           </button>
+
           <button type="submit" className="submit-btn">
             Save & Next
           </button>

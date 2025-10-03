@@ -1,7 +1,9 @@
-
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function SectionII({ onNext }) {
+  const navigate = useNavigate();
+
   const [activities, setActivities] = useState([
     { mainActivity: "", businessActivity: "", turnoverPercent: "" },
   ]);
@@ -10,26 +12,38 @@ export default function SectionII({ onNext }) {
     { product: "", nicCode: "", turnoverPercent: "" },
   ]);
 
+  // Handle changes for activities
   const handleActivityChange = (index, e) => {
     const { name, value } = e.target;
-    const updated = [...activities];
-    updated[index][name] = value;
-    setActivities(updated);
+    setActivities((prev) => {
+      const updated = [...prev];
+      updated[index][name] = value;
+      return updated;
+    });
   };
 
+  // Handle changes for products
   const handleProductChange = (index, e) => {
     const { name, value } = e.target;
-    const updated = [...products];
-    updated[index][name] = value;
-    setProducts(updated);
+    setProducts((prev) => {
+      const updated = [...prev];
+      updated[index][name] = value;
+      return updated;
+    });
   };
 
   const addActivity = () => {
-    setActivities([...activities, { mainActivity: "", businessActivity: "", turnoverPercent: "" }]);
+    setActivities((prev) => [
+      ...prev,
+      { mainActivity: "", businessActivity: "", turnoverPercent: "" },
+    ]);
   };
 
   const addProduct = () => {
-    setProducts([...products, { product: "", nicCode: "", turnoverPercent: "" }]);
+    setProducts((prev) => [
+      ...prev,
+      { product: "", nicCode: "", turnoverPercent: "" },
+    ]);
   };
 
   const handleSubmit = (e) => {
@@ -37,6 +51,7 @@ export default function SectionII({ onNext }) {
     const formData = { activities, products };
     console.log("Section II Data:", formData);
     if (onNext) onNext(formData);
+    navigate("/sectionIII");
   };
 
   return (
@@ -45,19 +60,39 @@ export default function SectionII({ onNext }) {
       <style>
         {`
           .form-container {
-            padding: 20px;
-            max-width: 700px;
+            padding: 30px;
+            max-width: 750px;
             margin: auto;
-            background: #fefefe;
-            border-radius: 8px;
-            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            font-family: Arial, sans-serif;
           }
           .form-container h2 {
             text-align: center;
-            color: #333;
+            color: #222;
+            margin-bottom: 20px;
+          }
+          .form-container h3 {
+            margin-top: 25px;
+            color: #444;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 6px;
+            font-size: 18px;
+          }
+          .form-card {
+            background: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            transition: box-shadow 0.3s ease;
+          }
+          .form-card:hover {
+            box-shadow: 0 0 8px rgba(0,0,0,0.15);
           }
           .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
           }
           .form-group label {
             display: block;
@@ -69,19 +104,25 @@ export default function SectionII({ onNext }) {
             width: 100%;
             padding: 8px;
             border: 1px solid #ccc;
-            border-radius: 4px;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s;
+          }
+          .form-group input:focus {
+            border-color: #007bff;
           }
           .add-btn, .submit-btn {
-            padding: 8px 12px;
-            margin-top: 8px;
+            padding: 10px 15px;
+            margin-top: 10px;
             border: none;
-            border-radius: 4px;
+            border-radius: 5px;
             cursor: pointer;
+            font-weight: bold;
           }
           .add-btn {
             background: #28a745;
             color: #fff;
-            margin-right: 10px;
+            margin-bottom: 20px;
           }
           .add-btn:hover {
             background: #218838;
@@ -103,26 +144,32 @@ export default function SectionII({ onNext }) {
         <form onSubmit={handleSubmit}>
           <h3>Business Activities (90% of Turnover)</h3>
           {activities.map((activity, index) => (
-            <div key={index} className="form-group">
-              <label>Main Activity:</label>
-              <input
-                name="mainActivity"
-                value={activity.mainActivity}
-                onChange={(e) => handleActivityChange(index, e)}
-              />
-              <label>Business Activity:</label>
-              <input
-                name="businessActivity"
-                value={activity.businessActivity}
-                onChange={(e) => handleActivityChange(index, e)}
-              />
-              <label>% of Turnover:</label>
-              <input
-                type="number"
-                name="turnoverPercent"
-                value={activity.turnoverPercent}
-                onChange={(e) => handleActivityChange(index, e)}
-              />
+            <div key={index} className="form-card">
+              <div className="form-group">
+                <label>Main Activity:</label>
+                <input
+                  name="mainActivity"
+                  value={activity.mainActivity}
+                  onChange={(e) => handleActivityChange(index, e)}
+                />
+              </div>
+              <div className="form-group">
+                <label>Business Activity:</label>
+                <input
+                  name="businessActivity"
+                  value={activity.businessActivity}
+                  onChange={(e) => handleActivityChange(index, e)}
+                />
+              </div>
+              <div className="form-group">
+                <label>% of Turnover:</label>
+                <input
+                  type="number"
+                  name="turnoverPercent"
+                  value={activity.turnoverPercent}
+                  onChange={(e) => handleActivityChange(index, e)}
+                />
+              </div>
             </div>
           ))}
           <button type="button" className="add-btn" onClick={addActivity}>
@@ -131,26 +178,32 @@ export default function SectionII({ onNext }) {
 
           <h3>Products / Services Sold (90% of Turnover)</h3>
           {products.map((product, index) => (
-            <div key={index} className="form-group">
-              <label>Product / Service:</label>
-              <input
-                name="product"
-                value={product.product}
-                onChange={(e) => handleProductChange(index, e)}
-              />
-              <label>NIC Code:</label>
-              <input
-                name="nicCode"
-                value={product.nicCode}
-                onChange={(e) => handleProductChange(index, e)}
-              />
-              <label>% of Total Turnover:</label>
-              <input
-                type="number"
-                name="turnoverPercent"
-                value={product.turnoverPercent}
-                onChange={(e) => handleProductChange(index, e)}
-              />
+            <div key={index} className="form-card">
+              <div className="form-group">
+                <label>Product / Service:</label>
+                <input
+                  name="product"
+                  value={product.product}
+                  onChange={(e) => handleProductChange(index, e)}
+                />
+              </div>
+              <div className="form-group">
+                <label>NIC Code:</label>
+                <input
+                  name="nicCode"
+                  value={product.nicCode}
+                  onChange={(e) => handleProductChange(index, e)}
+                />
+              </div>
+              <div className="form-group">
+                <label>% of Total Turnover:</label>
+                <input
+                  type="number"
+                  name="turnoverPercent"
+                  value={product.turnoverPercent}
+                  onChange={(e) => handleProductChange(index, e)}
+                />
+              </div>
             </div>
           ))}
           <button type="button" className="add-btn" onClick={addProduct}>
@@ -165,4 +218,3 @@ export default function SectionII({ onNext }) {
     </div>
   );
 }
-
