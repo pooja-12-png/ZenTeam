@@ -16,6 +16,8 @@ body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, figure, figcaption, blockquote, dl,
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Ensure consistent rendering */
@@ -25,6 +27,10 @@ html {
 
 body {
   min-height: 100%;
+}
+
+#root {
+  min-height: 100vh;
 }
 
 /* Form Styles */

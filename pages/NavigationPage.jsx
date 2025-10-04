@@ -58,6 +58,11 @@ export default function NavigationPage() {
           </Link>
         </li>
         <li style={styles.listItem}>
+          <Link style={styles.link} to="/sectionC">
+            Section C - Principle-wise Performance (1-5)
+          </Link>
+        </li>
+        <li style={styles.listItem}>
           <Link style={styles.link} to="/sectionII">
             Section II – Products/Services
           </Link>

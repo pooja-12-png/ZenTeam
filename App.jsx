@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import SectionA from "./components/SectionA.jsx";
 import SectionB from "./components/SectionB.jsx";
+import SectionC from "./components/SectionC.jsx";
 import SectionII from "./components/SectionII.jsx";
 import SectionIII from "./components/SectionIII.jsx";
 import SectionIV from "./components/SectionIV.jsx";
@@ -31,6 +32,10 @@ function App() {
         <Route
           path="/sectionB"
           element={<SectionB onNext={(data) => saveData("sectionB", data)} />}
+        />
+        <Route
+          path="/sectionC"
+          element={<SectionC onNext={(data) => saveData("sectionC", data)} />}
         />
         <Route
           path="/sectionII"

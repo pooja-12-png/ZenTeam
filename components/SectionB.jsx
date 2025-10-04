@@ -299,7 +299,7 @@ export default function SectionB({ onNext }) {
   );
 
   return (
-    <div className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-16 px-4 flex justify-center">
+    <div className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-1 px-4 flex justify-center">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16 mt-8">
