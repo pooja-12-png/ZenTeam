@@ -302,7 +302,7 @@ export default function SectionB({ onNext }) {
     <div className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-1 px-4 flex justify-center">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16 mt-8">
+        <div className="text-center mb-8 mt-8">
           <h1 className="text-5xl font-bold text-gray-900 mb-6">Section B</h1>
           <h2 className="text-3xl font-semibold text-blue-600 mb-4">
             Disclosure Questions

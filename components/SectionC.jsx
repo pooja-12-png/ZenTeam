@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Principle1 from "./principles/Principle1.jsx";
 import Principle2 from "./principles/Principle2.jsx";
+import Principle3 from "./principles/Principle3.jsx";
+import Principle4 from "./principles/Principle4.jsx";
 
 export default function SectionC({ onNext }) {
   const navigate = useNavigate();
@@ -106,7 +108,7 @@ export default function SectionC({ onNext }) {
     <div className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-8 px-4 flex justify-center">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16 mt-0">
+        <div className="text-center mb-8 mt-0">
           <h1 className="text-5xl font-bold text-gray-900 mb-6">Section C</h1>
           <h2 className="text-3xl font-semibold text-blue-600 mb-4">
             Principle-wise Performance Disclosure
@@ -124,14 +126,19 @@ export default function SectionC({ onNext }) {
           {/* Principle 2 */}
           <Principle2 formData={formData} setFormData={setFormData} />
 
-          {/* Placeholder sections for other principles */}
+          {/* Principle 3 */}
+          <Principle3 formData={formData} setFormData={setFormData} />
+
+          {/* Principle 4 */}
+          <Principle4 formData={formData} setFormData={setFormData} />
+
+          {/* Placeholder section for Principle 5 */}
           <div className="card mx-auto">
             <h3 className="section-header text-center text-gray-500">
-              Principles 3-5 (Coming Soon)
+              Principle 5 (Coming Soon)
             </h3>
             <p className="text-center text-gray-600">
-              Additional principles will be implemented here following the same
-              pattern.
+              Principle 5 will be implemented here following the same pattern.
             </p>
           </div>
 
