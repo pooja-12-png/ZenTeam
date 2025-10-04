@@ -78,7 +78,7 @@ export default function Principle4({ formData, setFormData }) {
                   type="text"
                   className="form-input"
                   placeholder="Enter stakeholder group"
-                  value={formData.principle4?.stakeholders?.group1?.name || ""}
+                  value={formData.principle4?.stakeholders?.group1_name || ""}
                   onChange={(e) =>
                     handleNestedChange(
                       "stakeholders",
@@ -96,7 +96,7 @@ export default function Principle4({ formData, setFormData }) {
                 <select
                   className="form-select"
                   value={
-                    formData.principle4?.stakeholders?.group1?.vulnerable || ""
+                    formData.principle4?.stakeholders?.group1_vulnerable || ""
                   }
                   onChange={(e) =>
                     handleNestedChange(
@@ -117,7 +117,7 @@ export default function Principle4({ formData, setFormData }) {
                 <select
                   className="form-select"
                   value={
-                    formData.principle4?.stakeholders?.group1?.frequency || ""
+                    formData.principle4?.stakeholders?.group1_frequency || ""
                   }
                   onChange={(e) =>
                     handleNestedChange(
@@ -143,7 +143,7 @@ export default function Principle4({ formData, setFormData }) {
                   className="form-input"
                   placeholder="Email, SMS, Newspaper, Pamphlets, Advertisement, Community Meetings, Notice Board, Website, Others"
                   value={
-                    formData.principle4?.stakeholders?.group1?.channels || ""
+                    formData.principle4?.stakeholders?.group1_channels || ""
                   }
                   onChange={(e) =>
                     handleNestedChange(
@@ -164,7 +164,7 @@ export default function Principle4({ formData, setFormData }) {
                   className="form-textarea"
                   placeholder="Describe purpose, scope, key topics and concerns raised during engagement..."
                   value={
-                    formData.principle4?.stakeholders?.group1?.purpose || ""
+                    formData.principle4?.stakeholders?.group1_purpose || ""
                   }
                   onChange={(e) =>
                     handleNestedChange(
@@ -190,7 +190,7 @@ export default function Principle4({ formData, setFormData }) {
                   type="text"
                   className="form-input"
                   placeholder="Enter stakeholder group"
-                  value={formData.principle4?.stakeholders?.group2?.name || ""}
+                  value={formData.principle4?.stakeholders?.group2_name || ""}
                   onChange={(e) =>
                     handleNestedChange(
                       "stakeholders",
@@ -208,7 +208,7 @@ export default function Principle4({ formData, setFormData }) {
                 <select
                   className="form-select"
                   value={
-                    formData.principle4?.stakeholders?.group2?.vulnerable || ""
+                    formData.principle4?.stakeholders?.group2_vulnerable || ""
                   }
                   onChange={(e) =>
                     handleNestedChange(
@@ -229,7 +229,7 @@ export default function Principle4({ formData, setFormData }) {
                 <select
                   className="form-select"
                   value={
-                    formData.principle4?.stakeholders?.group2?.frequency || ""
+                    formData.principle4?.stakeholders?.group2_frequency || ""
                   }
                   onChange={(e) =>
                     handleNestedChange(
@@ -255,7 +255,7 @@ export default function Principle4({ formData, setFormData }) {
                   className="form-input"
                   placeholder="Email, SMS, Newspaper, Pamphlets, Advertisement, Community Meetings, Notice Board, Website, Others"
                   value={
-                    formData.principle4?.stakeholders?.group2?.channels || ""
+                    formData.principle4?.stakeholders?.group2_channels || ""
                   }
                   onChange={(e) =>
                     handleNestedChange(
@@ -276,7 +276,7 @@ export default function Principle4({ formData, setFormData }) {
                   className="form-textarea"
                   placeholder="Describe purpose, scope, key topics and concerns raised during engagement..."
                   value={
-                    formData.principle4?.stakeholders?.group2?.purpose || ""
+                    formData.principle4?.stakeholders?.group2_purpose || ""
                   }
                   onChange={(e) =>
                     handleNestedChange(
@@ -302,7 +302,7 @@ export default function Principle4({ formData, setFormData }) {
                   type="text"
                   className="form-input"
                   placeholder="Enter stakeholder group"
-                  value={formData.principle4?.stakeholders?.group3?.name || ""}
+                  value={formData.principle4?.stakeholders?.group3_name || ""}
                   onChange={(e) =>
                     handleNestedChange(
                       "stakeholders",
@@ -320,7 +320,7 @@ export default function Principle4({ formData, setFormData }) {
                 <select
                   className="form-select"
                   value={
-                    formData.principle4?.stakeholders?.group3?.vulnerable || ""
+                    formData.principle4?.stakeholders?.group3_vulnerable || ""
                   }
                   onChange={(e) =>
                     handleNestedChange(
@@ -341,7 +341,7 @@ export default function Principle4({ formData, setFormData }) {
                 <select
                   className="form-select"
                   value={
-                    formData.principle4?.stakeholders?.group3?.frequency || ""
+                    formData.principle4?.stakeholders?.group3_frequency || ""
                   }
                   onChange={(e) =>
                     handleNestedChange(
@@ -367,7 +367,7 @@ export default function Principle4({ formData, setFormData }) {
                   className="form-input"
                   placeholder="Email, SMS, Newspaper, Pamphlets, Advertisement, Community Meetings, Notice Board, Website, Others"
                   value={
-                    formData.principle4?.stakeholders?.group3?.channels || ""
+                    formData.principle4?.stakeholders?.group3_channels || ""
                   }
                   onChange={(e) =>
                     handleNestedChange(
@@ -388,7 +388,7 @@ export default function Principle4({ formData, setFormData }) {
                   className="form-textarea"
                   placeholder="Describe purpose, scope, key topics and concerns raised during engagement..."
                   value={
-                    formData.principle4?.stakeholders?.group3?.purpose || ""
+                    formData.principle4?.stakeholders?.group3_purpose || ""
                   }
                   onChange={(e) =>
                     handleNestedChange(
@@ -414,7 +414,7 @@ export default function Principle4({ formData, setFormData }) {
                   type="text"
                   className="form-input"
                   placeholder="Enter stakeholder group"
-                  value={formData.principle4?.stakeholders?.group4?.name || ""}
+                  value={formData.principle4?.stakeholders?.group4_name || ""}
                   onChange={(e) =>
                     handleNestedChange(
                       "stakeholders",
@@ -432,7 +432,7 @@ export default function Principle4({ formData, setFormData }) {
                 <select
                   className="form-select"
                   value={
-                    formData.principle4?.stakeholders?.group4?.vulnerable || ""
+                    formData.principle4?.stakeholders?.group4_vulnerable || ""
                   }
                   onChange={(e) =>
                     handleNestedChange(
@@ -453,7 +453,7 @@ export default function Principle4({ formData, setFormData }) {
                 <select
                   className="form-select"
                   value={
-                    formData.principle4?.stakeholders?.group4?.frequency || ""
+                    formData.principle4?.stakeholders?.group4_frequency || ""
                   }
                   onChange={(e) =>
                     handleNestedChange(
@@ -479,7 +479,7 @@ export default function Principle4({ formData, setFormData }) {
                   className="form-input"
                   placeholder="Email, SMS, Newspaper, Pamphlets, Advertisement, Community Meetings, Notice Board, Website, Others"
                   value={
-                    formData.principle4?.stakeholders?.group4?.channels || ""
+                    formData.principle4?.stakeholders?.group4_channels || ""
                   }
                   onChange={(e) =>
                     handleNestedChange(
@@ -500,7 +500,7 @@ export default function Principle4({ formData, setFormData }) {
                   className="form-textarea"
                   placeholder="Describe purpose, scope, key topics and concerns raised during engagement..."
                   value={
-                    formData.principle4?.stakeholders?.group4?.purpose || ""
+                    formData.principle4?.stakeholders?.group4_purpose || ""
                   }
                   onChange={(e) =>
                     handleNestedChange(
@@ -526,7 +526,7 @@ export default function Principle4({ formData, setFormData }) {
                   type="text"
                   className="form-input"
                   placeholder="Enter stakeholder group"
-                  value={formData.principle4?.stakeholders?.group5?.name || ""}
+                  value={formData.principle4?.stakeholders?.group5_name || ""}
                   onChange={(e) =>
                     handleNestedChange(
                       "stakeholders",
@@ -544,7 +544,7 @@ export default function Principle4({ formData, setFormData }) {
                 <select
                   className="form-select"
                   value={
-                    formData.principle4?.stakeholders?.group5?.vulnerable || ""
+                    formData.principle4?.stakeholders?.group5_vulnerable || ""
                   }
                   onChange={(e) =>
                     handleNestedChange(
@@ -565,7 +565,7 @@ export default function Principle4({ formData, setFormData }) {
                 <select
                   className="form-select"
                   value={
-                    formData.principle4?.stakeholders?.group5?.frequency || ""
+                    formData.principle4?.stakeholders?.group5_frequency || ""
                   }
                   onChange={(e) =>
                     handleNestedChange(
@@ -591,7 +591,7 @@ export default function Principle4({ formData, setFormData }) {
                   className="form-input"
                   placeholder="Email, SMS, Newspaper, Pamphlets, Advertisement, Community Meetings, Notice Board, Website, Others"
                   value={
-                    formData.principle4?.stakeholders?.group5?.channels || ""
+                    formData.principle4?.stakeholders?.group5_channels || ""
                   }
                   onChange={(e) =>
                     handleNestedChange(
@@ -612,7 +612,7 @@ export default function Principle4({ formData, setFormData }) {
                   className="form-textarea"
                   placeholder="Describe purpose, scope, key topics and concerns raised during engagement..."
                   value={
-                    formData.principle4?.stakeholders?.group5?.purpose || ""
+                    formData.principle4?.stakeholders?.group5_purpose || ""
                   }
                   onChange={(e) =>
                     handleNestedChange(

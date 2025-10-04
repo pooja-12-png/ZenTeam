@@ -45,17 +45,22 @@ export default function Principle3({ formData, setFormData }) {
         <div className="space-y-6">
           {["Male", "Female", "Others", "Total"].map((category) => (
             <div key={category} className="bg-gray-50 rounded-lg p-6">
-              <h6 className="font-semibold text-gray-700 mb-4">{category}</h6>
+              <h6 className="font-semibold text-gray-700 mb-6 text-lg underline">
+                {category}
+              </h6>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
                 <div>
-                  <label className="form-label text-sm">Total (A)</label>
+                  <label className="form-label text-sm">
+                    Total <br /> (A)
+                  </label>
                   <input
                     type="text"
                     className="form-input"
                     placeholder="Enter total"
                     value={
-                      formData.principle3?.wellbeing?.[category.toLowerCase()]
-                        ?.total || ""
+                      formData.principle3?.wellbeing?.[
+                        `${category.toLowerCase()}_total`
+                      ] || ""
                     }
                     onChange={(e) =>
                       handleNestedChange(
@@ -76,8 +81,9 @@ export default function Principle3({ formData, setFormData }) {
                     className="form-input"
                     placeholder="Number"
                     value={
-                      formData.principle3?.wellbeing?.[category.toLowerCase()]
-                        ?.healthInsuranceNum || ""
+                      formData.principle3?.wellbeing?.[
+                        `${category.toLowerCase()}_healthInsuranceNum`
+                      ] || ""
                     }
                     onChange={(e) =>
                       handleNestedChange(
@@ -98,8 +104,9 @@ export default function Principle3({ formData, setFormData }) {
                     className="form-input"
                     placeholder="Number"
                     value={
-                      formData.principle3?.wellbeing?.[category.toLowerCase()]
-                        ?.accidentInsuranceNum || ""
+                      formData.principle3?.wellbeing?.[
+                        `${category.toLowerCase()}_accidentInsuranceNum`
+                      ] || ""
                     }
                     onChange={(e) =>
                       handleNestedChange(
@@ -120,8 +127,9 @@ export default function Principle3({ formData, setFormData }) {
                     className="form-input"
                     placeholder="Number"
                     value={
-                      formData.principle3?.wellbeing?.[category.toLowerCase()]
-                        ?.maternityBenefitsNum || ""
+                      formData.principle3?.wellbeing?.[
+                        `${category.toLowerCase()}_maternityBenefitsNum`
+                      ] || ""
                     }
                     onChange={(e) =>
                       handleNestedChange(
@@ -142,8 +150,9 @@ export default function Principle3({ formData, setFormData }) {
                     className="form-input"
                     placeholder="Number"
                     value={
-                      formData.principle3?.wellbeing?.[category.toLowerCase()]
-                        ?.paternityBenefitsNum || ""
+                      formData.principle3?.wellbeing?.[
+                        `${category.toLowerCase()}_paternityBenefitsNum`
+                      ] || ""
                     }
                     onChange={(e) =>
                       handleNestedChange(
@@ -164,8 +173,9 @@ export default function Principle3({ formData, setFormData }) {
                     className="form-input"
                     placeholder="Number"
                     value={
-                      formData.principle3?.wellbeing?.[category.toLowerCase()]
-                        ?.dayCareFacilitiesNum || ""
+                      formData.principle3?.wellbeing?.[
+                        `${category.toLowerCase()}_dayCareFacilitiesNum`
+                      ] || ""
                     }
                     onChange={(e) =>
                       handleNestedChange(
@@ -273,8 +283,8 @@ export default function Principle3({ formData, setFormData }) {
                       placeholder="No. of employees covered as a % of total employees"
                       value={
                         formData.principle3?.retirementBenefits?.[
-                          benefit.toLowerCase()
-                        ]?.fy2024_25_employees || ""
+                          `${benefit.toLowerCase()}_fy2024_25_employees`
+                        ] || ""
                       }
                       onChange={(e) =>
                         handleNestedChange(
@@ -290,8 +300,8 @@ export default function Principle3({ formData, setFormData }) {
                       placeholder="No. of workers covered as a % of total workers"
                       value={
                         formData.principle3?.retirementBenefits?.[
-                          benefit.toLowerCase()
-                        ]?.fy2024_25_workers || ""
+                          `${benefit.toLowerCase()}_fy2024_25_workers`
+                        ] || ""
                       }
                       onChange={(e) =>
                         handleNestedChange(
@@ -305,8 +315,8 @@ export default function Principle3({ formData, setFormData }) {
                       className="form-select"
                       value={
                         formData.principle3?.retirementBenefits?.[
-                          benefit.toLowerCase()
-                        ]?.fy2024_25_deposited || ""
+                          `${benefit.toLowerCase()}_fy2024_25_deposited`
+                        ] || ""
                       }
                       onChange={(e) =>
                         handleNestedChange(
@@ -337,8 +347,8 @@ export default function Principle3({ formData, setFormData }) {
                       placeholder="No. of employees covered as a % of total employees"
                       value={
                         formData.principle3?.retirementBenefits?.[
-                          benefit.toLowerCase()
-                        ]?.fy2023_24_employees || ""
+                          `${benefit.toLowerCase()}_fy2023_24_employees`
+                        ] || ""
                       }
                       onChange={(e) =>
                         handleNestedChange(
@@ -354,8 +364,8 @@ export default function Principle3({ formData, setFormData }) {
                       placeholder="No. of workers covered as a % of total workers"
                       value={
                         formData.principle3?.retirementBenefits?.[
-                          benefit.toLowerCase()
-                        ]?.fy2023_24_workers || ""
+                          `${benefit.toLowerCase()}_fy2023_24_workers`
+                        ] || ""
                       }
                       onChange={(e) =>
                         handleNestedChange(
@@ -369,8 +379,8 @@ export default function Principle3({ formData, setFormData }) {
                       className="form-select"
                       value={
                         formData.principle3?.retirementBenefits?.[
-                          benefit.toLowerCase()
-                        ]?.fy2023_24_deposited || ""
+                          `${benefit.toLowerCase()}_fy2023_24_deposited`
+                        ] || ""
                       }
                       onChange={(e) =>
                         handleNestedChange(
@@ -604,8 +614,10 @@ export default function Principle3({ formData, setFormData }) {
                     placeholder="Total (A), Union members (B), % (B/A)"
                     value={
                       formData.principle3?.unionMembership?.[
-                        category.toLowerCase().replace(/\s+/g, "_")
-                      ]?.fy2024_25 || ""
+                        `${category
+                          .toLowerCase()
+                          .replace(/\s+/g, "_")}_fy2024_25`
+                      ] || ""
                     }
                     onChange={(e) =>
                       handleNestedChange(
@@ -627,8 +639,10 @@ export default function Principle3({ formData, setFormData }) {
                     placeholder="Total (C), Union members (D), % (D/C)"
                     value={
                       formData.principle3?.unionMembership?.[
-                        category.toLowerCase().replace(/\s+/g, "_")
-                      ]?.fy2023_24 || ""
+                        `${category
+                          .toLowerCase()
+                          .replace(/\s+/g, "_")}_fy2023_24`
+                      ] || ""
                     }
                     onChange={(e) =>
                       handleNestedChange(
@@ -758,6 +772,322 @@ export default function Principle3({ formData, setFormData }) {
         />
       </div>
 
+      {/* Essential Indicator 13 - Complaints on Working Conditions/Health & Safety */}
+      <div className="mb-10">
+        <h5 className="text-lg font-semibold text-gray-800 mb-6">
+          13. Number of complaints on the following made by employees and
+          workers:
+        </h5>
+
+        {["Working Conditions", "Health & Safety"].map((complaintType) => (
+          <div key={complaintType} className="bg-gray-50 rounded-lg p-6 mb-6">
+            <h6 className="font-semibold text-gray-700 mb-4">
+              {complaintType}
+            </h6>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* FY 2024-25 Section */}
+              <div className="space-y-4">
+                <h6 className="font-medium text-gray-600">FY 2024-25</h6>
+
+                <div>
+                  <label className="form-label text-sm">
+                    Filed during the year
+                  </label>
+                  <input
+                    type="text"
+                    className="form-input"
+                    placeholder="Enter number"
+                    value={
+                      formData.principle3?.complaints?.[
+                        `${complaintType
+                          .toLowerCase()
+                          .replace(/\s+/g, "_")
+                          .replace(/&/g, "and")}_fy2024_25_filed`
+                      ] || ""
+                    }
+                    onChange={(e) =>
+                      handleNestedChange(
+                        "complaints",
+                        `${complaintType
+                          .toLowerCase()
+                          .replace(/\s+/g, "_")
+                          .replace(/&/g, "and")}_fy2024_25_filed`,
+                        e.target.value
+                      )
+                    }
+                  />
+                </div>
+
+                <div>
+                  <label className="form-label text-sm">
+                    Pending resolution at end of year
+                  </label>
+                  <input
+                    type="text"
+                    className="form-input"
+                    placeholder="Enter number"
+                    value={
+                      formData.principle3?.complaints?.[
+                        `${complaintType
+                          .toLowerCase()
+                          .replace(/\s+/g, "_")
+                          .replace(/&/g, "and")}_fy2024_25_pending`
+                      ] || ""
+                    }
+                    onChange={(e) =>
+                      handleNestedChange(
+                        "complaints",
+                        `${complaintType
+                          .toLowerCase()
+                          .replace(/\s+/g, "_")
+                          .replace(/&/g, "and")}_fy2024_25_pending`,
+                        e.target.value
+                      )
+                    }
+                  />
+                </div>
+
+                <div>
+                  <label className="form-label text-sm">Remarks</label>
+                  <textarea
+                    className="form-textarea"
+                    placeholder="Enter remarks"
+                    value={
+                      formData.principle3?.complaints?.[
+                        `${complaintType
+                          .toLowerCase()
+                          .replace(/\s+/g, "_")
+                          .replace(/&/g, "and")}_fy2024_25_remarks`
+                      ] || ""
+                    }
+                    onChange={(e) =>
+                      handleNestedChange(
+                        "complaints",
+                        `${complaintType
+                          .toLowerCase()
+                          .replace(/\s+/g, "_")
+                          .replace(/&/g, "and")}_fy2024_25_remarks`,
+                        e.target.value
+                      )
+                    }
+                  />
+                </div>
+              </div>
+
+              {/* FY 2023-24 Section */}
+              <div className="space-y-4">
+                <h6 className="font-medium text-gray-600">FY 2023-24</h6>
+
+                <div>
+                  <label className="form-label text-sm">
+                    Filed during the year
+                  </label>
+                  <input
+                    type="text"
+                    className="form-input"
+                    placeholder="Enter number"
+                    value={
+                      formData.principle3?.complaints?.[
+                        `${complaintType
+                          .toLowerCase()
+                          .replace(/\s+/g, "_")
+                          .replace(/&/g, "and")}_fy2023_24_filed`
+                      ] || ""
+                    }
+                    onChange={(e) =>
+                      handleNestedChange(
+                        "complaints",
+                        `${complaintType
+                          .toLowerCase()
+                          .replace(/\s+/g, "_")
+                          .replace(/&/g, "and")}_fy2023_24_filed`,
+                        e.target.value
+                      )
+                    }
+                  />
+                </div>
+
+                <div>
+                  <label className="form-label text-sm">
+                    Pending resolution at end of year
+                  </label>
+                  <input
+                    type="text"
+                    className="form-input"
+                    placeholder="Enter number"
+                    value={
+                      formData.principle3?.complaints?.[
+                        `${complaintType
+                          .toLowerCase()
+                          .replace(/\s+/g, "_")
+                          .replace(/&/g, "and")}_fy2023_24_pending`
+                      ] || ""
+                    }
+                    onChange={(e) =>
+                      handleNestedChange(
+                        "complaints",
+                        `${complaintType
+                          .toLowerCase()
+                          .replace(/\s+/g, "_")
+                          .replace(/&/g, "and")}_fy2023_24_pending`,
+                        e.target.value
+                      )
+                    }
+                  />
+                </div>
+
+                <div>
+                  <label className="form-label text-sm">Remarks</label>
+                  <textarea
+                    className="form-textarea"
+                    placeholder="Enter remarks"
+                    value={
+                      formData.principle3?.complaints?.[
+                        `${complaintType
+                          .toLowerCase()
+                          .replace(/\s+/g, "_")
+                          .replace(/&/g, "and")}_fy2023_24_remarks`
+                      ] || ""
+                    }
+                    onChange={(e) =>
+                      handleNestedChange(
+                        "complaints",
+                        `${complaintType
+                          .toLowerCase()
+                          .replace(/\s+/g, "_")
+                          .replace(/&/g, "and")}_fy2023_24_remarks`,
+                        e.target.value
+                      )
+                    }
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Essential Indicator 14 - Assessments */}
+      <div className="mb-10">
+        <h5 className="text-lg font-semibold text-gray-800 mb-6">
+          14. Assessments for the year:
+        </h5>
+
+        {["Health and safety practices", "Working Conditions"].map(
+          (assessmentType) => (
+            <div
+              key={assessmentType}
+              className="bg-gray-50 rounded-lg p-6 mb-4"
+            >
+              <h6 className="font-semibold text-gray-700 mb-4">
+                {assessmentType}
+              </h6>
+
+              <div>
+                <label className="form-label">
+                  % of your plants and offices that were assessed (by entity or
+                  statutory authorities or third parties)
+                </label>
+                <input
+                  type="text"
+                  className="form-input"
+                  placeholder="Enter percentage"
+                  value={
+                    formData.principle3?.assessments?.[
+                      `${assessmentType
+                        .toLowerCase()
+                        .replace(/\s+/g, "_")}_percentage`
+                    ] || ""
+                  }
+                  onChange={(e) =>
+                    handleNestedChange(
+                      "assessments",
+                      `${assessmentType
+                        .toLowerCase()
+                        .replace(/\s+/g, "_")}_percentage`,
+                      e.target.value
+                    )
+                  }
+                />
+              </div>
+            </div>
+          )
+        )}
+      </div>
+
+      {/* Essential Indicator 15 - Corrective Actions */}
+      <div className="mb-10">
+        <h5 className="text-lg font-semibold text-gray-800 mb-6">
+          15. Provide details of any corrective action taken or underway to
+          address safety-related incidents (if any) and on significant
+          risks/concerns arising from assessments of health & safety practices
+          and working conditions:
+        </h5>
+        <textarea
+          className="form-textarea"
+          placeholder="Describe corrective actions taken or underway..."
+          value={formData.principle3?.correctiveActions || ""}
+          onChange={(e) =>
+            handleInputChange("correctiveActions", e.target.value)
+          }
+        />
+      </div>
+
+      {/* Essential Indicator 16 - Risk & Concerns */}
+      <div className="mb-10">
+        <h5 className="text-lg font-semibold text-gray-800 mb-6">
+          16. Risk & Concerns and Corrective Action:
+        </h5>
+
+        {[1, 2, 3].map((index) => (
+          <div key={index} className="bg-gray-50 rounded-lg p-6 mb-4">
+            <h6 className="font-semibold text-gray-700 mb-4">
+              Risk/Concern {index}
+            </h6>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label className="form-label">Risk & Concern</label>
+                <textarea
+                  className="form-textarea"
+                  placeholder="Describe the risk or concern..."
+                  value={
+                    formData.principle3?.risks?.[`risk_${index}_description`] ||
+                    ""
+                  }
+                  onChange={(e) =>
+                    handleNestedChange(
+                      "risks",
+                      `risk_${index}_description`,
+                      e.target.value
+                    )
+                  }
+                />
+              </div>
+
+              <div>
+                <label className="form-label">Corrective Action</label>
+                <textarea
+                  className="form-textarea"
+                  placeholder="Describe corrective action taken..."
+                  value={
+                    formData.principle3?.risks?.[`risk_${index}_action`] || ""
+                  }
+                  onChange={(e) =>
+                    handleNestedChange(
+                      "risks",
+                      `risk_${index}_action`,
+                      e.target.value
+                    )
+                  }
+                />
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
       {/* Leadership Indicators */}
       <div className="mb-8">
         <h4 className="subsection-header">Leadership Indicators</h4>
@@ -813,6 +1143,71 @@ export default function Principle3({ formData, setFormData }) {
           value={formData.principle3?.transitionAssistance || ""}
           onChange={(e) =>
             handleInputChange("transitionAssistance", e.target.value)
+          }
+        />
+      </div>
+
+      {/* Leadership Indicator 5 - Value Chain Partners Assessment */}
+      <div className="mb-10">
+        <h5 className="text-lg font-semibold text-gray-800 mb-6">
+          5. Details on assessment of value chain partners:
+        </h5>
+
+        {["Health and safety practices", "Working Conditions"].map(
+          (assessmentType) => (
+            <div
+              key={assessmentType}
+              className="bg-gray-50 rounded-lg p-6 mb-4"
+            >
+              <h6 className="font-semibold text-gray-700 mb-4">
+                {assessmentType}
+              </h6>
+
+              <div>
+                <label className="form-label">
+                  % of Value Chain partners (by value of business done with such
+                  partners) that were assessed
+                </label>
+                <input
+                  type="text"
+                  className="form-input"
+                  placeholder="Enter percentage"
+                  value={
+                    formData.principle3?.valueChainAssessment?.[
+                      `${assessmentType
+                        .toLowerCase()
+                        .replace(/\s+/g, "_")}_percentage`
+                    ] || ""
+                  }
+                  onChange={(e) =>
+                    handleNestedChange(
+                      "valueChainAssessment",
+                      `${assessmentType
+                        .toLowerCase()
+                        .replace(/\s+/g, "_")}_percentage`,
+                      e.target.value
+                    )
+                  }
+                />
+              </div>
+            </div>
+          )
+        )}
+      </div>
+
+      {/* Leadership Indicator 6 - Value Chain Partners Corrective Actions */}
+      <div className="mb-10">
+        <h5 className="text-lg font-semibold text-gray-800 mb-6">
+          6. Provide details of any corrective actions taken or underway to
+          address significant risks/concerns arising from assessments of health
+          and safety practices and working conditions of value chain partners:
+        </h5>
+        <textarea
+          className="form-textarea"
+          placeholder="Describe corrective actions taken for value chain partners..."
+          value={formData.principle3?.valueChainCorrectiveActions || ""}
+          onChange={(e) =>
+            handleInputChange("valueChainCorrectiveActions", e.target.value)
           }
         />
       </div>

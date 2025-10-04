@@ -227,8 +227,7 @@ export default function Principle1({ formData, setFormData }) {
                   className="form-input"
                   placeholder="Enter number"
                   value={
-                    formData.principle1?.disciplinary?.directors?.fy2024_25 ||
-                    ""
+                    formData.principle1?.disciplinary?.directors_fy2024_25 || ""
                   }
                   onChange={(e) =>
                     handleNestedChange(
@@ -246,8 +245,7 @@ export default function Principle1({ formData, setFormData }) {
                   className="form-input"
                   placeholder="Enter number"
                   value={
-                    formData.principle1?.disciplinary?.directors?.fy2023_24 ||
-                    ""
+                    formData.principle1?.disciplinary?.directors_fy2023_24 || ""
                   }
                   onChange={(e) =>
                     handleNestedChange(
