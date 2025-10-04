@@ -215,7 +215,7 @@ export default function SectionB({ onNext }) {
     e.preventDefault();
     console.log("Section B Data:", formData);
     if (onNext) onNext(formData);
-    navigate("/sectionII");
+    navigate("/sectionC");
   };
 
   const PrincipleGrid = ({
@@ -225,12 +225,12 @@ export default function SectionB({ onNext }) {
     type = "select",
     options = ["Yes", "No"],
   }) => (
-    <div className="mb-10">
-      <h4 className="subsection-header">{title}</h4>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="mb-8 sm:mb-10">
+      <h4 className="subsection-header text-base sm:text-lg">{title}</h4>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {principleLabels.map((principle) => (
           <div key={principle} className="card">
-            <label className="form-label">
+            <label className="form-label text-sm sm:text-base">
               {principle}
               <span className="block text-xs text-gray-500 font-normal mt-1">
                 {principleNames[principle].split(" - ")[1]}
@@ -238,7 +238,7 @@ export default function SectionB({ onNext }) {
             </label>
             {type === "select" ? (
               <select
-                className="form-select"
+                className="form-select text-sm sm:text-base"
                 value={
                   subfield
                     ? formData[section][subfield][principle]
@@ -269,7 +269,7 @@ export default function SectionB({ onNext }) {
             ) : (
               <input
                 type="text"
-                className="form-input"
+                className="form-input text-sm sm:text-base"
                 placeholder="Enter details..."
                 value={
                   subfield
@@ -299,21 +299,23 @@ export default function SectionB({ onNext }) {
   );
 
   return (
-    <div className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-1 px-4 flex justify-center">
-      <div className="max-w-6xl mx-auto">
+    <div className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-4 px-4 sm:py-8 sm:px-6 lg:px-8 flex justify-center min-h-screen">
+      <div className="max-w-6xl mx-auto w-full">
         {/* Header */}
-        <div className="text-center mb-8 mt-8">
-          <h1 className="text-5xl font-bold text-gray-900 mb-6">Section B</h1>
-          <h2 className="text-3xl font-semibold text-blue-600 mb-4">
+        <div className="text-center mb-6 sm:mb-8 mt-4 sm:mt-8">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+            Section B
+          </h1>
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-blue-600 mb-3 sm:mb-4">
             Disclosure Questions
           </h2>
-          <p className="text-md text-gray-600 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base lg:text-md text-gray-600 max-w-4xl mx-auto leading-relaxed px-2 sm:px-0">
             Management and process disclosures related to the National
             Guidelines on Responsible Business Conduct (NGRBC)
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-12">
+        <form onSubmit={handleSubmit} className="space-y-8 sm:space-y-12">
           {/* Question 1 - Policy Coverage */}
           <div className="card mx-auto">
             <h3 className="section-header">
@@ -333,14 +335,14 @@ export default function SectionB({ onNext }) {
             />
 
             {/* 1c - Web Links */}
-            <div className="mb-10">
-              <h4 className="subsection-header">
+            <div className="mb-8 sm:mb-10">
+              <h4 className="subsection-header text-base sm:text-lg">
                 1.c. Web Link of the Policies, if available
               </h4>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {principleLabels.map((principle) => (
                   <div key={principle} className="card">
-                    <label className="form-label">
+                    <label className="form-label text-sm sm:text-base">
                       {principle} - Web Link
                       <span className="block text-xs text-gray-500 font-normal mt-1">
                         {principleNames[principle].split(" - ")[1]}
@@ -348,7 +350,7 @@ export default function SectionB({ onNext }) {
                     </label>
                     <input
                       type="url"
-                      className="form-input"
+                      className="form-input text-sm sm:text-base"
                       placeholder="https://example.com/policy"
                       value={formData.webLinks[principle]}
                       onChange={(e) =>
@@ -392,16 +394,18 @@ export default function SectionB({ onNext }) {
 
           {/* Questions 5-9 - General Disclosures */}
           <div className="card mx-auto">
-            <h3 className="section-header">General Management Disclosures</h3>
+            <h3 className="section-header text-base sm:text-lg">
+              General Management Disclosures
+            </h3>
 
-            <div className="space-y-8">
+            <div className="space-y-6 sm:space-y-8">
               <div>
-                <label className="form-label block">
+                <label className="form-label block text-sm sm:text-base">
                   5. Specific commitments, goals, and targets set by the entity
                   with defined timelines
                 </label>
                 <textarea
-                  className="form-textarea"
+                  className="form-textarea text-sm sm:text-base min-h-[100px] sm:min-h-[120px]"
                   placeholder="Describe specific commitments, goals, and targets with timelines..."
                   value={formData.commitments}
                   onChange={(e) =>
@@ -411,12 +415,12 @@ export default function SectionB({ onNext }) {
               </div>
 
               <div>
-                <label className="form-label block">
+                <label className="form-label block text-sm sm:text-base">
                   6. Performance against specific commitments, goals, and
                   targets along with reasons if not met
                 </label>
                 <textarea
-                  className="form-textarea"
+                  className="form-textarea text-sm sm:text-base min-h-[100px] sm:min-h-[120px]"
                   placeholder="Describe performance and reasons for any unmet targets..."
                   value={formData.performance}
                   onChange={(e) =>
@@ -426,12 +430,12 @@ export default function SectionB({ onNext }) {
               </div>
 
               <div>
-                <label className="form-label block">
+                <label className="form-label block text-sm sm:text-base">
                   7. Statement by director responsible for the business
                   responsibility report
                 </label>
                 <textarea
-                  className="form-textarea"
+                  className="form-textarea text-sm sm:text-base min-h-[100px] sm:min-h-[120px]"
                   placeholder="Director's statement highlighting ESG related challenges, targets and achievements..."
                   value={formData.directorStatement}
                   onChange={(e) =>
@@ -441,13 +445,13 @@ export default function SectionB({ onNext }) {
               </div>
 
               <div>
-                <label className="form-label block">
+                <label className="form-label block text-sm sm:text-base">
                   8. Details of the highest authority responsible for
                   implementation and oversight of Business Responsibility
                   policies
                 </label>
                 <textarea
-                  className="form-textarea"
+                  className="form-textarea text-sm sm:text-base min-h-[100px] sm:min-h-[120px]"
                   placeholder="Provide details of the highest authority..."
                   value={formData.highestAuthority}
                   onChange={(e) =>
@@ -457,12 +461,12 @@ export default function SectionB({ onNext }) {
               </div>
 
               <div>
-                <label className="form-label block">
+                <label className="form-label block text-sm sm:text-base">
                   9. Does the entity have a specified Committee of the
                   Board/Director responsible for sustainability related issues?
                 </label>
                 <textarea
-                  className="form-textarea"
+                  className="form-textarea text-sm sm:text-base min-h-[100px] sm:min-h-[120px]"
                   placeholder="Yes/No and provide details if yes..."
                   value={formData.boardCommittee}
                   onChange={(e) =>
@@ -475,27 +479,29 @@ export default function SectionB({ onNext }) {
 
           {/* Question 10 - Review Details */}
           <div className="card mx-auto">
-            <h3 className="section-header text-center">
+            <h3 className="section-header text-center text-base sm:text-lg">
               10. Details of Review of NGRBCs by the Company
             </h3>
 
             {/* 10.1 Performance Review */}
-            <div className="mb-8">
-              <h4 className="subsection-header">
+            <div className="mb-6 sm:mb-8">
+              <h4 className="subsection-header text-base sm:text-lg">
                 10.1 Performance against policies and follow-up action
               </h4>
 
-              <div className="mb-6">
-                <h5 className="text-md font-semibold text-gray-700 mb-4">
+              <div className="mb-4 sm:mb-6">
+                <h5 className="text-sm sm:text-md font-semibold text-gray-700 mb-3 sm:mb-4">
                   Review undertaken by (Director/Committee of the Board/Any
                   other Committee)
                 </h5>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                   {principleLabels.map((principle) => (
                     <div key={principle} className="card">
-                      <label className="form-label">{principle}</label>
+                      <label className="form-label text-sm sm:text-base">
+                        {principle}
+                      </label>
                       <select
-                        className="form-select"
+                        className="form-select text-sm sm:text-base"
                         value={formData.performanceReview.reviewBy[principle]}
                         onChange={(e) =>
                           handleNestedChange(
@@ -518,16 +524,18 @@ export default function SectionB({ onNext }) {
                 </div>
               </div>
 
-              <div className="mb-6">
-                <h5 className="text-md font-semibold text-gray-700 mb-4">
+              <div className="mb-4 sm:mb-6">
+                <h5 className="text-sm sm:text-md font-semibold text-gray-700 mb-3 sm:mb-4">
                   Frequency of Review
                 </h5>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                   {principleLabels.map((principle) => (
                     <div key={principle} className="card">
-                      <label className="form-label">{principle}</label>
+                      <label className="form-label text-sm sm:text-base">
+                        {principle}
+                      </label>
                       <select
-                        className="form-select"
+                        className="form-select text-sm sm:text-base"
                         value={formData.performanceReview.frequency[principle]}
                         onChange={(e) =>
                           handleNestedChange(
@@ -551,23 +559,25 @@ export default function SectionB({ onNext }) {
             </div>
 
             {/* 10.2 Compliance Review */}
-            <div className="mb-8">
-              <h4 className="subsection-header">
+            <div className="mb-6 sm:mb-8">
+              <h4 className="subsection-header text-base sm:text-lg">
                 10.2 Compliance with statutory requirements and rectification of
                 non-compliances
               </h4>
 
-              <div className="mb-6">
-                <h5 className="text-md font-semibold text-gray-700 mb-4">
+              <div className="mb-4 sm:mb-6">
+                <h5 className="text-sm sm:text-md font-semibold text-gray-700 mb-3 sm:mb-4">
                   Review undertaken by (Director/Committee of the Board/Any
                   other Committee)
                 </h5>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                   {principleLabels.map((principle) => (
                     <div key={principle} className="card">
-                      <label className="form-label">{principle}</label>
+                      <label className="form-label text-sm sm:text-base">
+                        {principle}
+                      </label>
                       <select
-                        className="form-select"
+                        className="form-select text-sm sm:text-base"
                         value={formData.complianceReview.reviewBy[principle]}
                         onChange={(e) =>
                           handleNestedChange(
@@ -590,16 +600,18 @@ export default function SectionB({ onNext }) {
                 </div>
               </div>
 
-              <div className="mb-6">
-                <h5 className="text-md font-semibold text-gray-700 mb-4">
+              <div className="mb-4 sm:mb-6">
+                <h5 className="text-sm sm:text-md font-semibold text-gray-700 mb-3 sm:mb-4">
                   Frequency of Review
                 </h5>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                   {principleLabels.map((principle) => (
                     <div key={principle} className="card">
-                      <label className="form-label">{principle}</label>
+                      <label className="form-label text-sm sm:text-base">
+                        {principle}
+                      </label>
                       <select
-                        className="form-select"
+                        className="form-select text-sm sm:text-base"
                         value={formData.complianceReview.frequency[principle]}
                         onChange={(e) =>
                           handleNestedChange(
@@ -625,17 +637,19 @@ export default function SectionB({ onNext }) {
 
           {/* Questions 11-12 - Final Questions */}
           <div className="card mx-auto">
-            <h3 className="section-header">Final Assessment Questions</h3>
+            <h3 className="section-header text-base sm:text-lg">
+              Final Assessment Questions
+            </h3>
 
-            <div className="space-y-8">
+            <div className="space-y-6 sm:space-y-8">
               <div>
-                <label className="form-label block">
+                <label className="form-label block text-sm sm:text-base">
                   11. Has the entity carried out independent
                   assessment/evaluation of the working of its policies by an
                   external agency?
                 </label>
                 <textarea
-                  className="form-textarea"
+                  className="form-textarea text-sm sm:text-base min-h-[100px] sm:min-h-[120px]"
                   placeholder="Yes/No. If yes, provide the name of the agency..."
                   value={formData.independentAssessment}
                   onChange={(e) =>
@@ -645,12 +659,12 @@ export default function SectionB({ onNext }) {
               </div>
 
               <div>
-                <label className="form-label block">
+                <label className="form-label block text-sm sm:text-base">
                   12. If answer to question (1) above is "No" (not all
                   Principles are covered by a policy), state reasons
                 </label>
                 <textarea
-                  className="form-textarea"
+                  className="form-textarea text-sm sm:text-base min-h-[100px] sm:min-h-[120px]"
                   placeholder="State reasons why not all principles are covered..."
                   value={formData.reasonsNotCovered}
                   onChange={(e) =>
@@ -662,26 +676,26 @@ export default function SectionB({ onNext }) {
           </div>
 
           {/* Navigation Buttons */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-between items-center pt-12 pb-16">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-between items-center pt-8 sm:pt-12 pb-8 sm:pb-16 px-2 sm:px-0">
             <button
               type="button"
               onClick={() => navigate("/")}
-              className="btn-secondary w-full sm:w-auto order-2 sm:order-1"
+              className="btn-secondary w-full sm:w-auto order-2 sm:order-1 text-sm sm:text-base"
             >
               ← Back to Navigation
             </button>
 
             <div className="text-center order-1 sm:order-2">
-              <p className="text-gray-600 text-lg font-medium">
+              <p className="text-gray-600 text-base sm:text-lg font-medium">
                 Section B of 8
               </p>
             </div>
 
             <button
               type="submit"
-              className="btn-primary w-full sm:w-auto order-3"
+              className="btn-primary w-full sm:w-auto order-3 text-sm sm:text-base"
             >
-              Save & Continue to Section II →
+              Save & Continue to Section C →
             </button>
           </div>
         </form>

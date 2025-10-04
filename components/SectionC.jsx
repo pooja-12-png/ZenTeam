@@ -408,45 +408,47 @@ export default function SectionC({ onNext }) {
   };
 
   return (
-    <div className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-8 px-4 flex justify-center">
-      <div className="max-w-6xl mx-auto">
+    <div className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-4 px-4 sm:py-8 sm:px-6 lg:px-8 flex justify-center min-h-screen">
+      <div className="max-w-6xl mx-auto w-full">
         {/* Header */}
-        <div className="text-center mb-8 mt-0">
-          <h1 className="text-5xl font-bold text-gray-900 mb-6">Section C</h1>
-          <h2 className="text-3xl font-semibold text-blue-600 mb-4">
+        <div className="text-center mb-6 sm:mb-8 mt-4 sm:mt-0">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+            Section C
+          </h1>
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-blue-600 mb-3 sm:mb-4">
             Principle-wise Performance Disclosure
           </h2>
-          <p className="text-md text-gray-600 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base lg:text-md text-center text-gray-600 px-2 sm:px-0">
             Detailed disclosures on performance parameters related to the
             National Guidelines on Responsible Business Conduct (NGRBC)
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-12">
+        <form onSubmit={handleSubmit} className="space-y-8 sm:space-y-12">
           <Principle1 formData={formData} setFormData={setFormData} />
           <Principle2 formData={formData} setFormData={setFormData} />
           <Principle3 formData={formData} setFormData={setFormData} />
           <Principle4 formData={formData} setFormData={setFormData} />
           <Principle5 formData={formData} setFormData={setFormData} />
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-between items-center pt-12 pb-16">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-between items-center pt-8 sm:pt-12 pb-8 sm:pb-16 px-2 sm:px-0">
             <button
               type="button"
               onClick={() => navigate("/")}
-              className="btn-secondary w-full sm:w-auto order-2 sm:order-1"
+              className="btn-secondary w-full sm:w-auto order-2 sm:order-1 text-sm sm:text-base"
             >
               ← Back to Navigation
             </button>
 
             <div className="text-center order-1 sm:order-2">
-              <p className="text-gray-600 text-lg font-medium">
+              <p className="text-gray-600 text-base sm:text-lg font-medium">
                 Section C of 8
               </p>
             </div>
 
             <button
               type="submit"
-              className="btn-primary w-full sm:w-auto order-3"
+              className="btn-primary w-full sm:w-auto order-3 text-sm sm:text-base"
             >
               Save & Continue →
             </button>

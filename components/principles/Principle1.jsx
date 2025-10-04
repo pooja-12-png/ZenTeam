@@ -26,29 +26,31 @@ export default function Principle1({ formData, setFormData }) {
 
   return (
     <div className="card mx-auto">
-      <h3 className="section-header">
+      <h3 className="section-header text-base sm:text-lg lg:text-xl">
         Principle 1 – Businesses should conduct and govern themselves with
         integrity, and in a manner that is Ethical, Transparent and Accountable
       </h3>
 
       {/* Essential Indicators */}
-      <div className="mb-8">
-        <h4 className="subsection-header">Essential Indicators</h4>
+      <div className="mb-6 sm:mb-8">
+        <h4 className="subsection-header text-base sm:text-lg">
+          Essential Indicators
+        </h4>
       </div>
 
       {/* Question 1 - Training and Awareness Programmes */}
-      <div className="mb-10">
-        <h5 className="text-lg font-semibold text-gray-800 mb-6">
+      <div className="mb-8 sm:mb-10">
+        <h5 className="text-base sm:text-lg font-semibold text-gray-800 mb-4 sm:mb-6">
           1. Percentage coverage by training and awareness programmes on any of
           the principles during the financial year:
         </h5>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           <div>
-            <label className="form-label">Segment</label>
+            <label className="form-label text-sm sm:text-base">Segment</label>
             <input
               type="text"
-              className="form-input"
+              className="form-input text-sm sm:text-base"
               placeholder="e.g., Board of Directors, Key Managerial Personnel"
               value={formData.principle1?.training?.segment || ""}
               onChange={(e) =>
@@ -58,12 +60,12 @@ export default function Principle1({ formData, setFormData }) {
           </div>
 
           <div>
-            <label className="form-label">
+            <label className="form-label text-sm sm:text-base">
               Total number of training and awareness programmes held
             </label>
             <input
               type="text"
-              className="form-input"
+              className="form-input text-sm sm:text-base"
               placeholder="Enter number"
               value={formData.principle1?.training?.totalPrograms || ""}
               onChange={(e) =>
@@ -73,11 +75,11 @@ export default function Principle1({ formData, setFormData }) {
           </div>
 
           <div>
-            <label className="form-label">
+            <label className="form-label text-sm sm:text-base">
               Topics/principles covered under the training and its impact
             </label>
             <textarea
-              className="form-textarea"
+              className="form-textarea text-sm sm:text-base min-h-[80px] sm:min-h-[100px]"
               placeholder="Describe topics covered and impact..."
               value={formData.principle1?.training?.topicsCovered || ""}
               onChange={(e) =>
@@ -87,13 +89,13 @@ export default function Principle1({ formData, setFormData }) {
           </div>
 
           <div>
-            <label className="form-label">
+            <label className="form-label text-sm sm:text-base">
               % of persons in respective category covered by the awareness
               programmes
             </label>
             <input
               type="text"
-              className="form-input"
+              className="form-input text-sm sm:text-base"
               placeholder="Enter percentage"
               value={formData.principle1?.training?.percentageCovered || ""}
               onChange={(e) =>
@@ -109,8 +111,8 @@ export default function Principle1({ formData, setFormData }) {
       </div>
 
       {/* Question 2 - Fines/Penalties */}
-      <div className="mb-10">
-        <h5 className="text-lg font-semibold text-gray-800 mb-6">
+      <div className="mb-8 sm:mb-10">
+        <h5 className="text-base sm:text-lg font-semibold text-gray-800 mb-4 sm:mb-6">
           2. Details of fines/penalties/punishment/award/compounding
           fees/settlement amount paid in proceedings (by the entity or by
           directors/KMPs) with regulators/law enforcement agencies/judicial
@@ -118,11 +120,11 @@ export default function Principle1({ formData, setFormData }) {
         </h5>
 
         <div>
-          <label className="form-label">
+          <label className="form-label text-sm sm:text-base">
             Details (format as per SEBI (LODR) Regulations, 2015)
           </label>
           <textarea
-            className="form-textarea"
+            className="form-textarea text-sm sm:text-base min-h-[80px] sm:min-h-[100px]"
             placeholder="Provide details of any fines, penalties, or settlements..."
             value={formData.principle1?.finesDetails || ""}
             onChange={(e) => handleInputChange("finesDetails", e.target.value)}
@@ -131,18 +133,20 @@ export default function Principle1({ formData, setFormData }) {
       </div>
 
       {/* Question 3 - Appeals/Revisions */}
-      <div className="mb-10">
-        <h5 className="text-lg font-semibold text-gray-800 mb-6">
+      <div className="mb-8 sm:mb-10">
+        <h5 className="text-base sm:text-lg font-semibold text-gray-800 mb-4 sm:mb-6">
           3. Of the instances disclosed in Question 2 above, details of the
           Appeal/Revision preferred in cases where monetary or non-monetary
           action has been appealed:
         </h5>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           <div>
-            <label className="form-label">Case Details</label>
+            <label className="form-label text-sm sm:text-base">
+              Case Details
+            </label>
             <textarea
-              className="form-textarea"
+              className="form-textarea text-sm sm:text-base min-h-[80px] sm:min-h-[100px]"
               placeholder="Provide case details..."
               value={formData.principle1?.appeals?.caseDetails || ""}
               onChange={(e) =>
@@ -152,12 +156,12 @@ export default function Principle1({ formData, setFormData }) {
           </div>
 
           <div>
-            <label className="form-label">
+            <label className="form-label text-sm sm:text-base">
               Name of the regulatory/enforcement agencies/judicial institutions
             </label>
             <input
               type="text"
-              className="form-input"
+              className="form-input text-sm sm:text-base"
               placeholder="Enter agency name"
               value={formData.principle1?.appeals?.agencyName || ""}
               onChange={(e) =>
